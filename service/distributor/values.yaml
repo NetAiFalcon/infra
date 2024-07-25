@@ -12,3 +12,6 @@ distributor-kafka:
   image: falcon-distributor-kafka:5
   replicas: 1
   type: ClusterIP
+  envFrom:
+    - secretRef:
+        name: falcon-distributor-kafka-secret
