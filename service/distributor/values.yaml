@@ -9,7 +9,7 @@ distributor-api:
 
 distributor-kafka:
   name: distributor-kafka-helm
-  image: falcon-distributor-kafka:5
+  image: falcon-distributor-kafka:6
   replicas: 1
   type: ClusterIP
   envFrom:
