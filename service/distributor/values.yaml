@@ -1,9 +1,9 @@
 imageRepository: minjuncho
 
 distributor-api:
-  name: blms-fe-helm
-  image: blms-fe:4
-  port: 8501
+  name: falcon-distributor-api-helm
+  image: falcon-distributor-api:3
+  port: 8000
   replicas: 2
   type: ClusterIP
 
