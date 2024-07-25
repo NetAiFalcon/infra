@@ -6,14 +6,3 @@ distributor-api:
   port: 8000
   replicas: 2
   type: LoadBalancer
-
-distributor-kafka:
-  name: distributor-kafka-helm
-  image: falcon-distributor-kafka:18
-  port: 8000
-  replicas: 1
-  type: LoadBalancer
-  # gpu_count: 1
-  envFrom:
-    - secretRef:
-        name: blms-gpt-api-key-yaml
