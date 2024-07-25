@@ -1,15 +1,15 @@
 imageRepository: minjuncho
 
 distributor-api:
-  name: falcon-distributor-api-helm
+  name: distributor-api-helm
   image: falcon-distributor-api:3
   port: 8000
   replicas: 2
   type: LoadBalancer
 
-blms-be-gpu:
-  name: blms-transceiver-helm-gpu
-  image: blms-transceiver:18
+distributor-kafka:
+  name: distributor-kafka-helm
+  image: falcon-distributor-kafka:18
   port: 8000
   replicas: 1
   type: LoadBalancer
