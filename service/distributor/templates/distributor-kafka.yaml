@@ -20,8 +20,6 @@ spec:
       containers:
         - name: {{ .name }}
           image: {{ $.Values.imageRepository }}/{{ .image }}
-          ports:
-            - containerPort: {{ .port }}
 ---
 apiVersion: v1
 kind: Service
