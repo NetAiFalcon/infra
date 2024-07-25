@@ -20,6 +20,9 @@ spec:
       containers:
         - name: {{ .name }}
           image: {{ $.Values.imageRepository }}/{{ .image }}
+          envFrom:
+            {{- toYaml .envFrom | nindent 12 }}
+          {{- end }}
 ---
 apiVersion: v1
 kind: Service
