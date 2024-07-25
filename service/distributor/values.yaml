@@ -9,6 +9,6 @@ distributor-api:
 
 distributor-kafka:
   name: distributor-kafka-helm
-  image: falcon-distributor-kafka:2
+  image: falcon-distributor-kafka:3
   replicas: 1
   type: ClusterIP
