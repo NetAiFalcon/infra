@@ -9,7 +9,7 @@ distributor-api:
 
 distributor-kafka:
   name: distributor-kafka-helm
-  image: falcon-distributor-kafka:12
+  image: falcon-distributor-kafka:13
   replicas: 1
   envFrom:
     - secretRef:
