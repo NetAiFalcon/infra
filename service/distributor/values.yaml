@@ -1,13 +1,13 @@
 imageRepository: minjuncho
 
-distributor-api:
+distributor_api:
   name: distributor-api-helm
   image: falcon-distributor-api:3
   port: 8000
   replicas: 2
   type: LoadBalancer
 
-distributor-kafka:
+distributor_kafka:
   name: distributor-kafka-helm
   image: falcon-distributor-kafka:15
   replicas: 1

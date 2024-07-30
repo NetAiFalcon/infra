@@ -17,24 +17,24 @@ spec:
         app: {{ $componentType }}
     spec:
       containers:
-        - name: {{ .distributor-api.name }}
-          image: {{ $.Values.imageRepository }}/{{ .distributor-api.image }}
+        - name: {{ .distributor_api.name }}
+          image: {{ $.Values.imageRepository }}/{{ .distributor_api.image }}
           ports:
-            - containerPort: {{ .distributor-api.port }}
+            - containerPort: {{ .distributor_api.port }}
           volumeMounts:
-            - name: shared-storage
+            - name: shared_storage
               mountPath: /shared
 
-        - name: {{ .distributor-kafka.name }}
-          image: {{ $.Values.imageRepository }}/{{ .distributor-kafka.image }}
+        - name: {{ .distributor_kafka.name }}
+          image: {{ $.Values.imageRepository }}/{{ .distributor_kafka.image }}
           envFrom:
-            {{- toYaml .distributor-kafka.envFrom | nindent 12 }}
+            {{- toYaml .distributor_kafka.envFrom | nindent 12 }}
           volumeMounts:
-            - name: shared-storage
+            - name: shared_storage
               mountPath: /shared
 
       volumes:
-        - name: shared-storage
+        - name: shared_storage
           emptyDir: {}
 
 ---
