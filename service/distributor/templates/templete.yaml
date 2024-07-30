@@ -1,0 +1,54 @@
+{{- $componentType := "distributor" }}
+{{- with (index .Values $componentType) }}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $componentType }}
+  labels:
+    app: {{ $componentType }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ $componentType }}
+  template:
+    metadata:
+      labels:
+        app: {{ $componentType }}
+    spec:
+      containers:
+        - name: {{ .distributor-api.name }}
+          image: {{ $.Values.imageRepository }}/{{ .distributor-api.image }}
+          ports:
+            - containerPort: {{ .distributor-api.port }}
+          volumeMounts:
+            - name: shared-storage
+              mountPath: /shared
+
+        - name: {{ .distributor-kafka.name }}
+          image: {{ $.Values.imageRepository }}/{{ .distributor-kafka.image }}
+          envFrom:
+            {{- toYaml .distributor-kafka.envFrom | nindent 12 }}
+          volumeMounts:
+            - name: shared-storage
+              mountPath: /shared
+
+      volumes:
+        - name: shared-storage
+          emptyDir: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .distributor-api.name }}-service
+spec:
+  type: {{ .distributor-api.type }}
+  ports:
+    - port: 8000
+      targetPort: {{ .distributor-api.port }}
+  selector:
+    app: {{ .distributor-api.name }}
+
+{{- end }}
