@@ -3,6 +3,12 @@ kind: Pod
 metadata:
   name: distributor-shared-storage
 spec:
+  containers:
+  - image: registry.k8s.io/test-webserver
+    name: test-distributor-container
+    volumeMounts:
+    - mountPath: /mnt/shared
+      name: shared-storage
   volumes:
     - name: shared-storage
       emptyDir: {}
