@@ -1,16 +1,15 @@
 imageRepository: minjuncho
 
-distributor_api:
-  name: distributor-api-helm
-  image: falcon-distributor-api:4
-  port: 8000
-  replicas: 2
-  type: LoadBalancer
+distributor:
+  distributor_api:
+    name: distributor-api-helm
+    image: falcon-distributor-api:4
+    type: LoadBalancer
 
-distributor_kafka:
-  name: distributor-kafka-helm
-  image: falcon-distributor-kafka:16
-  replicas: 1
-  envFrom:
-    - secretRef:
-        name: falcon-distributor-kafka-secret
+  distributor_kafka:
+    name: distributor-kafka-helm
+    image: falcon-distributor-kafka:16
+    replicas: 1
+    envFrom:
+      - secretRef:
+          name: falcon-distributor-kafka-secret
