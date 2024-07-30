@@ -22,7 +22,7 @@ spec:
           ports:
             - containerPort: {{ .distributor_api.port }}
           volumeMounts:
-            - name: shared_storage
+            - name: shared-storage
               mountPath: /shared
 
         - name: {{ .distributor_kafka.name }}
@@ -30,11 +30,11 @@ spec:
           envFrom:
             {{- toYaml .distributor_kafka.envFrom | nindent 12 }}
           volumeMounts:
-            - name: shared_storage
+            - name: shared-storage
               mountPath: /shared
 
       volumes:
-        - name: shared_storage
+        - name: shared-storage
           emptyDir: {}
 
 ---
