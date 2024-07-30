@@ -23,3 +23,6 @@ spec:
           envFrom:
             {{- toYaml .envFrom | nindent 12 }}
           {{- end }}
+          volumeMounts:
+          - name: shared-storage
+            mountPath: /mnt/shared

@@ -22,6 +22,10 @@ spec:
           image: {{ $.Values.imageRepository }}/{{ .image }}
           ports:
             - containerPort: {{ .port }}
+          volumeMounts:
+          - name: shared-storage
+            mountPath: /mnt/shared
+
 ---
 apiVersion: v1
 kind: Service
