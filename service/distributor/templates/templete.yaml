@@ -42,13 +42,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .distributor-api.name }}-service
+  name: {{ .distributor_api.name }}-service
 spec:
-  type: {{ .distributor-api.type }}
+  type: {{ .distributor_api.type }}
   ports:
     - port: 8000
-      targetPort: {{ .distributor-api.port }}
+      targetPort: {{ .distributor_api.port }}
   selector:
-    app: {{ .distributor-api.name }}
+    app: {{ .distributor_api.name }}
 
 {{- end }}
