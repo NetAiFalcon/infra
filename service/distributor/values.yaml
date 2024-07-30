@@ -4,6 +4,7 @@ distributor:
   distributor_api:
     name: distributor-api-helm
     image: falcon-distributor-api:4
+    port: 8000
     type: LoadBalancer
 
   distributor_kafka:
