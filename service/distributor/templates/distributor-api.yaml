@@ -24,7 +24,11 @@ spec:
             - containerPort: {{ .port }}
           volumeMounts:
           - name: shared-storage
-            mountPath: /mnt/shared
+            mountPath: /shared
+
+      volumes:
+        - name: shared-storage
+          emptyDir: {}
 
 ---
 apiVersion: v1
