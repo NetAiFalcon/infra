@@ -49,6 +49,6 @@ spec:
     - port: 8000
       targetPort: {{ .distributor_api.port }}
   selector:
-    app: {{ .distributor_api.name }}
+    app: {{ $componentType }}
 
 {{- end }}
