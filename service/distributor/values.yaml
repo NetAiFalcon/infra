@@ -3,7 +3,7 @@ imageRepository: minjuncho
 distributor:
   distributor_api:
     name: distributor-api-helm
-    image: falcon-distributor-api:4
+    image: falcon-distributor-api:5
     port: 8000
     type: LoadBalancer
 
