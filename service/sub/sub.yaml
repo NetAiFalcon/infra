@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
         - name: falcon-sub
-          image: falcon-sub-prod:2
+          image: minjuncho/falcon-sub-prod:3
