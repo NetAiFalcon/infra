@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: falcon-sub
+  labels:
+    app: falcon-sub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: falcon-sub
+  template:
+    metadata:
+      labels:
+        app: falcon-sub
+    spec:
+      containers:
+        - name: falcon-sub
+          image: minjuncho/falcon-sub-prod
