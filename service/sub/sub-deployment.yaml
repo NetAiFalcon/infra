@@ -17,24 +17,36 @@ spec:
     spec:
       containers:
         - name: falcon-sub
-          image: cjfgml0306/falcon-sub:latest
+          image: cjfgml0306/falcon-sub-demo:latest
           env:
             - name: NATS_SERVER
               valueFrom:
                 configMapKeyRef:
-                  name: falcon-nats-config
+                  name: falcon-sub-config
                   key: nats_server
             - name: NATS_PORT
               valueFrom:
                 configMapKeyRef:
-                  name: falcon-nats-config
+                  name: falcon-sub-config
                   key: nats_port
+            - name: KAFKA_SERVER
+              valueFrom:
+                configMapKeyRef:
+                  name: falcon-sub-config
+                  key: kafka_broker
+            - name: BROKER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: falcon-sub-config
+                  key: broker_port
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: falcon-nats-config
+  name: falcon-sub-config
   namespace: name-twin
 data:
-  nats_server: "falcon-nats-svc"
+  nats_server: "10.48.24.83"
   nats_port: "4222"
+  kafka_broker: "210.125.85.62"
+  broker_port: "9094"
